@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Divider } from "react-native-elements";
 import { Dimensions } from "react-native";
+import { COLORS } from "../../Colors";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -20,7 +21,7 @@ const Title = styled.Text`
   font-weight: 700;
 `;
 const SubTitle = styled.Text`
-  color: #b2b2b2;
+  color: ${({ color }) => color};
   padding-bottom: 10;
   font-size: 14;
   font-weight: bold;
@@ -42,7 +43,7 @@ const SlideImg = styled.Image`
 `;
 const SlideInfo = styled.View`
   height: ${({ height }) => height * 0.1};
-  background-color: #2c2c2e;
+  background-color: ${({ color }) => color};
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +65,7 @@ const MaxWinPrice = styled.Text`
   font-weight: bold;
 `;
 const SlidePriceGame = styled.View`
-  background-color: #e3f0ff;
+  background-color: ${({ color }) => color};
   border-radius: 14;
   padding-top: 4;
   padding-bottom: 4;
@@ -75,7 +76,7 @@ const SlidePriceGame = styled.View`
 const PriceGame = styled.Text`
   font-weight: bold;
   font-size: 16;
-  color: #2e80ba;
+  color: ${({ color }) => color};
 `;
 
 export default function SectionItemOld({ title, subTitle, datas }) {
@@ -83,7 +84,7 @@ export default function SectionItemOld({ title, subTitle, datas }) {
     <Container>
       <TitleContainer>
         <Title>{title}</Title>
-        <SubTitle>{subTitle}</SubTitle>
+        <SubTitle color={COLORS.lightGray}>{subTitle}</SubTitle>
         <Divider width={0.5} inset={true} insetType="right" />
       </TitleContainer>
 
@@ -102,7 +103,7 @@ export default function SectionItemOld({ title, subTitle, datas }) {
                   uri: item.image,
                 }}
               />
-              <SlideInfo height={windowHeight}>
+              <SlideInfo height={windowHeight} color={COLORS.gray}>
                 <SlidePriceContainer height={windowHeight}>
                   {item.isLotery ? (
                     <SlideMaxWin>Près de </SlideMaxWin>
@@ -115,8 +116,8 @@ export default function SectionItemOld({ title, subTitle, datas }) {
                     <MaxWinPrice>{item.maxWin} €</MaxWinPrice>
                   )}
                 </SlidePriceContainer>
-                <SlidePriceGame>
-                  <PriceGame>{item.price} €</PriceGame>
+                <SlidePriceGame color={COLORS.lighterGray}>
+                  <PriceGame color={COLORS.blue}>{item.price} €</PriceGame>
                 </SlidePriceGame>
               </SlideInfo>
             </Slide>

@@ -1,30 +1,31 @@
 import React from "react";
 import styled from "styled-components";
+import { COLORS } from "../../Colors";
 
 const Container = styled.View`
   margin-top: 10;
   margin-bottom: 10;
 `;
 const MentionsText = styled.Text`
-  color: #9b9b9b;
+  color: ${({ color }) => color};
   font-size: 10;
 `;
 
 export default function SectionLegalMentions() {
   return (
     <Container>
-      <MentionsText>
+      <MentionsText color={COLORS.lightGray}>
         (6b) Montant minimum à partager entre les gagnants du jackpot. Voir
         règlement. {"\n"}
         (6l) Formule Bingo Live "CLASSIC" limitée dans le temps (06/01/2022 au
         23/01/2022)
       </MentionsText>
-      <MentionsText>
+      <MentionsText color={COLORS.lightGray}>
         (11) Jackpot progressif incrémenté tant qu'il n'est pas remporté.{"\n"}
         (a1) Gain pour une mise unitaire de 1€. Voir règlement.{"\n"}
         (c3) soit 4 695 051 unités gagnantes sur 18 000 000 unités de jeu{"\n"}
       </MentionsText>
-      <MentionsText>
+      <MentionsText color={COLORS.lightGray}>
         ♣ Opération promotionnelle « Séjour étoilé » organisée par La Française
         des Jeux, du lundi 10 janvier 2022 00h00 au dimanche 16 janvier 2022
         23h59 sur le site Internet et mobile fdj.fr et sur l’application
@@ -49,7 +50,7 @@ export default function SectionLegalMentions() {
         modalités de participation dans le règlement publié sur le site fdj.fr.
         {"\n"}
       </MentionsText>
-      <MentionsText>
+      <MentionsText color={COLORS.lightGray}>
         (1a) Montant à partager entre les gagnants du 1er rang. Voir règlement.
         {"\n"}
         (1b) Parmi les codes LOTO® attribués pour chaque combinaison simple

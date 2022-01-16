@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { COLORS } from "../Colors";
 
 const bottomTabIcons = [
   {
@@ -28,7 +29,7 @@ const bottomTabIcons = [
 
 const Container = styled.View`
   height: 8%;
-  background-color: #2c2c2e;
+  background-color: ${({ color }) => color};
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
@@ -44,13 +45,13 @@ const IconText = styled.Text`
   font-size: 14;
   font-weight: 700;
   color: ${({ activeTab, iconName }) =>
-    activeTab === iconName ? "#1084d1" : "#b2b2b2"};
+    activeTab === iconName ? COLORS.blue : COLORS.gray};
 `;
 
 export default function Menu() {
   const [activeTab, setActivetab] = useState("Accueil");
   return (
-    <Container>
+    <Container color={COLORS.gray}>
       {bottomTabIcons.map((icon, index) => (
         <TouchableIcon key={index} onPress={() => setActivetab(icon.name)}>
           <IconImage

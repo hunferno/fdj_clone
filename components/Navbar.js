@@ -3,9 +3,10 @@ import Constant from "expo-constants";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import { Icon } from "react-native-elements";
+import { COLORS } from "../Colors";
 
 const Container = styled.View`
-  background-color: #2c2c2e;
+  background-color: ${({ color }) => color};
   padding-top: ${({ height }) => height};
   padding-right: 15;
   padding-left: 15;
@@ -20,10 +21,9 @@ const ProfileContainer = styled.View`
 
 const Img = styled.Image`
   width: 92;
-  /* background-color: lightblue; */
 `;
 const KycContainer = styled.View`
-  background-color: #1084d1;
+  background-color: ${({ color }) => color};
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -36,12 +36,12 @@ const KycContainer = styled.View`
 const KycText = styled.Text`
   font-size: 18;
   font-weight: bold;
-  color: #2c2c2e;
+  color: ${({ color }) => color};
 `;
 
 export default function Navbar() {
   return (
-    <Container height={Constant.statusBarHeight}>
+    <Container height={Constant.statusBarHeight} color={COLORS.gray}>
       <Img resizeMode="contain" source={require("../assets/img/logo.png")} />
       <ProfileContainer>
         <TouchableOpacity
@@ -50,10 +50,9 @@ export default function Navbar() {
           <Icon size={32} name="qrcode" type="font-awesome" color="#1084d1" />
         </TouchableOpacity>
         <TouchableOpacity style={{ marginLeft: 32 }}>
-          <KycContainer>
+          <KycContainer color={COLORS.blue}>
             <Icon size={24} name="check" type="font-awesome" color="#2c2c2e" />
-            {/* <Icon size={24} name="times" type="font-awesome" color="#2c2c2e" /> */}
-            <KycText>KYC</KycText>
+            <KycText color={COLORS.gray}>KYC</KycText>
           </KycContainer>
         </TouchableOpacity>
       </ProfileContainer>

@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { COLORS } from "../../Colors";
 
 const Container = styled.View`
   border-radius: 5;
-  background-color: #2c2c2e;
+  background-color: ${({ color }) => color};
   padding-top: 10;
   padding-bottom: 10;
   padding-left: 10;
@@ -31,7 +32,7 @@ const IvjPhoneText = styled.Text`
 
 export default function SectionGameRisks() {
   return (
-    <Container>
+    <Container color={COLORS.gray}>
       <Image
         source={{
           uri: "https://cdn-icons-png.flaticon.com/512/5181/5181956.png",

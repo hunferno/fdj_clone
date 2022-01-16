@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { COLORS } from "../Colors";
 import SectionGameRisks from "../components/home/SectionGameRisks";
 import SectionItemNew from "../components/home/SectionItemNew";
 import SectionItemOld from "../components/home/SectionItemOld";
@@ -9,7 +10,7 @@ import { AlaUne, Incontournables, JeuxFavoris } from "../datas/gameDatas";
 import { SectionsInfo } from "../datas/sectionsInfo";
 
 const Container = styled.ScrollView`
-  background-color: #121212;
+  background-color: ${({ bg }) => bg};
   flex: 1;
 `;
 const InfosContainer = styled.View`
@@ -20,7 +21,7 @@ const InfosContainer = styled.View`
 
 export default function Home() {
   return (
-    <Container>
+    <Container bg={COLORS.black}>
       <SectionItemNew
         title={SectionsInfo[0].title}
         subTitle={SectionsInfo[0].subTitle}
